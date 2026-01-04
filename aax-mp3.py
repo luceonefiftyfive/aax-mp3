@@ -36,7 +36,7 @@ class Ffmpeg:
     async def run_program(self, program:str, arguments:ty.List[str]) -> ty.Tuple[int, ty.List[str], ty.List[str]]:
         async def pump_bytes(stream: asyncio.StreamReader, prefix: str, results: ty.List[str]) -> None:
             while True:
-                line = await stream.readline()
+                line = await stream.read(1024*1024)
                 if not line:
                     break
                 text = line.decode(errors="replace")
