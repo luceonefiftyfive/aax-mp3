@@ -11,7 +11,7 @@ logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
 import click
 
-DEFAULT_PATH = "/usr/bin" if platform.system() == "Linux" else r"c:\Program Files\fmpeg\bin"
+DEFAULT_PATH = "/usr/bin" if platform.system() == "Linux" else r"c:\Program Files\ffmpeg\bin"
 
 @dataclass
 class Options:
@@ -27,7 +27,7 @@ class Ffmpeg:
 
     def __init__(self, ff_path: str = None, activate_bytes: str = None):
         if ff_path is None:
-            ff_path = r"c:\Program Files\fmpeg\bin"
+            ff_path = r"c:\Program Files\ffmpeg\bin"
         self.ff_path = ff_path
         if activate_bytes is None:
             activate_bytes = "11bb9604"
